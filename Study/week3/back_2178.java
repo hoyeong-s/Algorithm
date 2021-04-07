@@ -7,6 +7,17 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+public class Dot {
+	int r, c;
+
+	public Dot(int r, int c) {
+		super();
+		this.r = r;
+		this.c = c;
+	}
+	
+}
+
 public class back_2178 {
 	static int N,M;
 	static int [][] map;
