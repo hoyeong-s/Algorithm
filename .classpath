@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="My_Study"/>
 	<classpathentry kind="src" path="Study"/>
 	<classpathentry kind="src" path="ESC"/>
+	<classpathentry kind="src" path="KAKAO"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

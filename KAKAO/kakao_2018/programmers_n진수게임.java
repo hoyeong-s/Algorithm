@@ -1,4 +1,4 @@
-package week9;
+package kakao_2018;
 
 public class programmers_n진수게임 {
 	static StringBuilder sb = new StringBuilder();

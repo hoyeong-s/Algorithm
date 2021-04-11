@@ -1,4 +1,4 @@
-package week9;
+package kakao_2018;
 
 import java.util.Arrays;
 import java.util.Comparator;
