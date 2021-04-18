@@ -3,10 +3,10 @@ package week4;
 import java.util.*;
 import java.io.*;
 
-class Dot{
+class Dot2{
 	int r,c;
 
-	public Dot(int r, int c) {
+	public Dot2(int r, int c) {
 		super();
 		this.r = r;
 		this.c = c;
@@ -16,8 +16,8 @@ public class back_14502 {
 	static int N,M,idx,result=0;
 	static int [][] map, map_c;
 	static int [] combi;
-	static Queue<Dot> q = new LinkedList<>();
-	static ArrayList<Dot> list = new ArrayList<>();
+	static Queue<Dot2> q = new LinkedList<>();
+	static ArrayList<Dot2> list = new ArrayList<>();
 	final static int [] dr = {0,0,-1,1};
 	final static int [] dc = {-1,1,0,0};
 	public static void main(String[] args) throws IOException  {
@@ -41,7 +41,7 @@ public class back_14502 {
 					combi[idx++] = i*M + j;
 				}
 				else if(map[i][j]==2)
-					list.add(new Dot(i,j));
+					list.add(new Dot2(i,j));
 			}
 		}
 		
@@ -79,7 +79,7 @@ public class back_14502 {
 		
 		int cnt=0;
 		while(!q.isEmpty()) {
-			Dot d = q.poll();
+			Dot2 d = q.poll();
 			int r = d.r;
 			int c = d.c;
 			for(int dir=0; dir<4; dir++) {
@@ -90,7 +90,7 @@ public class back_14502 {
 				if(map_c[nr][nc]==0) {
 					cnt++;
 					map_c[nr][nc] = 2;
-					q.add(new Dot(nr,nc));
+					q.add(new Dot2(nr,nc));
 				}
 			}
 		}
