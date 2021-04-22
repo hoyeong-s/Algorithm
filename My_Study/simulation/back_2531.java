@@ -1,4 +1,4 @@
-package twopointer;
+package simulation;
 
 import java.util.*;
 import java.io.*;
