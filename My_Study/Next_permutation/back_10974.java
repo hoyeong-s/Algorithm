@@ -1,4 +1,4 @@
-package next_permutation;
+package Next_permutation;
 
 import java.io.BufferedReader;
 import java.io.IOException;

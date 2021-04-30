@@ -1,4 +1,4 @@
-package next_permutation;
+package Next_permutation;
 
 import java.io.*;
 import java.util.*;
