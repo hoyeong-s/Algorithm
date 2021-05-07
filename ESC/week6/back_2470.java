@@ -23,7 +23,6 @@ public class back_2470 {
 		search();
 		System.out.println(result[0] +" "+result[1]);
 	}
-	
 	private static void search() {
 		int start=0, end=N-1;
 		
