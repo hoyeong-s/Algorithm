@@ -13,7 +13,6 @@ class b_2206{
 		this.bomb = bomb;
 		this.cnt = cnt;
 	}
-
 }
 public class back_2206 {
 	static int N,M,result=987654321;
