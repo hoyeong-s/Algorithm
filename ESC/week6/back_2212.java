@@ -25,6 +25,11 @@ public class back_2212 {
 			dif[i] = sensor[i+1] - sensor[i];
 		
 		Arrays.sort(dif);
+		int result = 0;
+		for(int i=0; i<N-K; i++)
+			result += dif[i];
+		
+		System.out.println(result);
 	}
 
 }
