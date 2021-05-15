@@ -11,7 +11,8 @@ public class back_2504 {
 		String str = br.readLine();
 		// 2(2+3x3)+2x3 >> (2x2 + 2x3x3) + 2x3
 		// (()[[]])([]) >> (()) ([[]]) ([])
-		int sum=0, save=1;
+		
+		int sum=0, save=1; // save : 바깥쪽 괄호
 		for(int i=0; i<str.length(); i++) {
 			char a = str.charAt(i);
 			if(a=='(') {
@@ -19,7 +20,7 @@ public class back_2504 {
 				stack.add(a);
 			}
 			else if(a=='[') {
-				save*=3;
+				save*=3; 
 				stack.add(a);
 			}
 			else if(a==')' || a==']'){
@@ -44,16 +45,14 @@ public class back_2504 {
 						System.exit(0);
 					}
 					if(str.charAt(i-1)=='[') {
-						sum+=save;
+						sum+=save; //2*3*3
 					}
 					stack.pop();
-					save /= 3;
+					save /= 3; // save 2*3
 				}
 			}
 		}
 		if(!stack.isEmpty()) sum=0; // 연산 후에도 stack에 남아있다면 들린 괄호
 		System.out.println(sum);
-			
 	}
-
 }
