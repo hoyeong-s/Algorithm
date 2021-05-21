@@ -31,7 +31,6 @@ public class back_18352 {
 			int t = Integer.parseInt(st.nextToken());
 			list[f].add(t);
 		}
-		
 		pq.add(X);
 		dis[X] = 0;
 		dijk();
