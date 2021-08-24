@@ -23,17 +23,17 @@ public class next_permutation {
 	}
 	private static boolean np() {
 		int i = N-1;
-		while(i>0 && arr[i-1]>=arr[i]) --i;
+		while(i>0 && arr[i-1]>=arr[i]) --i; // 꼭대기 찾기
 		if(i==0) return false;
 		
 		int j = N-1;
-		while(arr[i-1] >= arr[j]) --j;
+		while(arr[i-1] >= arr[j]) --j; // 꼭대기 앞과 교환할 위치 찾기
 		
 		swap(i-1,j);
 		
 		int k = N-1;
 		while(i<k) {
-			swap(i++,k--);
+			swap(i++,k--); // 가장 작게 만들어주기
 		}
 		return true;
 	}
