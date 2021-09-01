@@ -61,7 +61,7 @@ public class back_2458 {
 			for(int j=1; j<=N; j++) {
 				if(s_map[i][j]) std++;
 			}
-			if(std==N-1) cnt++;
+			
 		}
 	}
 }

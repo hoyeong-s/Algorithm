@@ -5,7 +5,7 @@ public class 신규_아이디_추천 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String new_id = "...!@BaT#*..y.abcdefghijklm";
+		String new_id = "...!@BaT#*..y.abcdefghijklm.";
 		System.out.println(solution(new_id));
 	}
 	
@@ -16,7 +16,9 @@ public class 신규_아이디_추천 {
         temp = temp.replaceAll("[^-_.a-z0-9]","");
         System.out.println(temp);
         temp = temp.replaceAll("[.]{2,}",".");
+        System.out.println(temp);
         temp = temp.replaceAll("^[.]|[.]$","");
+        System.out.println(temp);
         System.out.println(temp.length());
         if(temp.equals(""))
             temp+="a";
