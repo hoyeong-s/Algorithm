@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class programmers_week4 {
+public class september_week4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
