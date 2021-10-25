@@ -45,6 +45,7 @@ public class sw_5658 {
 	}
 	private static void find() {
 		int cnt=1, sum=0, num=0;
+		
 		for(int i=lng-1; i>=0; i--) { // 3번 반복
 			for(int j=i; j<N+i; j++) { // i 부터 시작
 				char s = secret[j];
