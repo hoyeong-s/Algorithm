@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class september_week10 {
-	static int left = 987654321,right = Integer.MIN_VALUE,top = Integer.MIN_VALUE,bottom = 987654321;
+	static int left = Integer.MAX_VALUE,right = Integer.MIN_VALUE,top = Integer.MIN_VALUE,bottom = Integer.MAX_VALUE;
 	static ArrayList<Dot> list = new ArrayList<>();
 	static class Dot{
 		int r, c;
@@ -50,21 +50,21 @@ public class september_week10 {
         return answer;
     }
 	private static void calc(int [] a, int [] b) {
-		int A = a[0];
-		int B = a[1];
-		int E = a[2];
-		int C = b[0];
-		int D = b[1];
-		int F = b[2];
+		long A = a[0];
+		long B = a[1];
+		long E = a[2];
+		long C = b[0];
+		long D = b[1];
+		long F = b[2];
 		
 		if(A*D == B*C) return;
-		int c = (B*F - E*D) / (A*D - B*C);
-		int r = (E*C - A*F) / (A*D - B*C);
+		long c = (B*F - E*D) / (A*D - B*C);
+		long r = (E*C - A*F) / (A*D - B*C);
 		if((B*F - E*D) % (A*D - B*C)!=0 || (E*C - A*F) % (A*D - B*C)!=0) return;
-		left = Math.min(left, c);
-		right = Math.max(right, c);
-		top = Math.max(top, r);
-		bottom = Math.min(bottom, r);
-		list.add(new Dot(r,c));
+		left = Math.min(left, (int)c);
+		right = Math.max(right, (int)c);
+		top = Math.max(top, (int)r);
+		bottom = Math.min(bottom, (int)r);
+		list.add(new Dot((int)r,(int)c));
 	}
 }
