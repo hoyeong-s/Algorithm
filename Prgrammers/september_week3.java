@@ -5,7 +5,7 @@ public class september_week3 {
 	static int N,result,number;
 	static int [] dr = {0,0,0,-1,1}; // 좌우상하
 	static int [] dc = {0,-1,1,0,0};
-	static ArrayList<String> [] list; // table의 순서도가 들어갈 리스트
+	static ArrayList<int []> [] list1; // table의 순서도가 들어갈 리스트
 	static boolean [] check;
 	static boolean [][] visited;
 	static class Dot{
@@ -19,8 +19,11 @@ public class september_week3 {
 	}
 	
 	public static void main(String[] args) {
-		int[][] game_board = {{0,0,1,0,1,0,1,0,1,0,1,0,0,1,0,0,0,0}, {1,0,0,0,1,0,1,0,1,0,1,0,0,1,0,1,1,1}, {0,1,1,1,0,0,1,0,1,0,0,1,1,0,1,0,0,0}, {0,0,0,0,1,1,0,0,1,1,0,1,0,0,1,0,0,0}, {0,1,1,1,0,0,1,1,1,1,0,1,1,1,0,1,1,1}, {1,0,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0}, {0,0,0,1,1,1,0,0,1,1,0,1,1,1,1,0,0,1}, {1,1,1,0,0,0,1,1,0,0,1,0,0,0,0,1,1,0}, {0,0,1,0,1,1,1,0,0,1,0,1,1,1,1,0,0,0}, {1,1,0,1,1,0,1,1,1,1,0,1,0,0,0,1,1,1}, {0,0,0,0,1,0,0,0,0,1,0,1,0,0,1,0,1,0}, {1,1,1,1,0,1,1,1,1,1,0,1,0,1,0,0,1,0}, {0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,1,0,0}, {1,0,1,1,0,1,1,0,0,0,1,0,0,0,1,0,0,1}, {1,0,0,1,1,0,0,1,1,1,0,1,1,1,0,1,1,0}, {0,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,1,0}, {0,0,0,1,0,1,0,1,0,0,1,1,1,1,1,1,1,0}, {0,1,0,1,1,0,0,1,0,1,0,0,0,0,0,0,1,0}}; int[][] table = {{1,1,1,1,1,1,0,1,0,1,1,0,0,1,0,0,1,0}, {0,0,0,0,0,0,1,1,1,0,1,0,1,1,0,1,1,0}, {1,0,1,1,0,1,0,1,0,1,1,0,1,0,1,1,0,1}, {1,1,0,1,1,1,0,1,0,1,0,1,1,0,1,0,0,1}, {1,1,1,0,0,0,1,0,1,0,1,0,0,1,0,0,1,1}, {0,0,0,1,1,1,0,1,1,1,0,1,1,0,1,0,0,0}, {1,1,1,0,0,0,0,0,1,1,0,1,1,0,1,1,1,1}, {0,0,1,0,1,1,0,1,0,0,1,0,0,1,0,0,0,0}, {1,0,1,0,0,0,0,1,0,1,1,0,1,1,0,1,1,1}, {1,0,1,0,1,1,1,1,0,1,1,0,0,0,1,1,1,0}, {1,1,0,1,0,0,0,0,1,0,0,1,1,1,0,0,0,0}, {0,0,1,1,1,1,0,1,1,0,1,0,0,0,1,1,0,1}, {1,1,0,1,0,0,1,0,0,1,0,1,0,1,0,1,0,1}, {1,1,0,0,1,1,1,0,1,1,0,1,0,1,0,1,0,1}, {0,0,1,1,0,1,1,0,1,0,1,1,0,0,0,1,0,0}, {1,1,1,0,1,0,0,1,0,1,1,0,0,1,0,1,0,1}, {0,0,0,0,1,0,1,1,1,0,0,1,0,1,1,0,1,1}, {0,1,1,1,1,0,0,1,0,0,1,1,0,1,0,0,1,1}};
-		solution(game_board,table);
+
+int[][] game_board = {{0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0}, {0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0}, {1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1}, {0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0}, {0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1}, {0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0}, {0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0}, {1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0}, {0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0}, {0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1}, {0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0}}; 
+int[][] table = {{1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1},{1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1},{1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0},{0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0},{1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0},{1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},{1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1},{1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1}, {0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1}, {1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1}, {1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1}, {1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1}}; 
+
+solution(game_board,table);
 	}
 	public static int solution(int[][] game_board, int[][] table) {
         int answer = -1;
@@ -29,9 +32,9 @@ public class september_week3 {
         
         table = find(table); // 도형 번호 메기기
         
-        list = new ArrayList[26];
-        for(int i=2; i<=27; i++)
-        	list[i] = new ArrayList<>();
+        list1 = new ArrayList[number+1];
+        for(int i=2; i<=number; i++)
+        	list1[i] = new ArrayList<>();
         check = new boolean[number];
         
         for(int t=0; t<4; t++) {
@@ -39,11 +42,12 @@ public class september_week3 {
         		for(int j=0; j<N; j++) {
         			if(table[i][j]!=0 && !visited[i][j]) {
         				int num = table[i][j];
-        				String load = make(i,j,table);
-        				if(!list[num].contains(load)) list[num].add(load);
+        				int [] arr = make(i,j,table);
+        				if(!checking(num,arr)) list1[num].add(arr);
         			}
         		}
         	}
+        	
         	table = spin(table); // 테이블 회전
         	for(boolean [] r : visited)
         		Arrays.fill(r, false);
@@ -54,10 +58,12 @@ public class september_week3 {
         		if(game_board[i][j]==0 && !visited[i][j]) last(i,j,game_board);
         	}
         }
+        
         return result;
     }
-	private static String make(int rr, int cc, int [][] table) { // 순서도 만들기
-		String load = "";
+	private static int [] make(int rr, int cc, int [][] table) { // 순서도 만들기
+		int cnt = 0;
+		int [] load = new int[5];
 		Queue<Dot> q = new LinkedList<>();
 		visited[rr][cc] = true;
 		q.add(new Dot(rr,cc));
@@ -72,7 +78,7 @@ public class september_week3 {
 				if(nr<0 || nc<0 || nr>=N || nc>=N) continue;
 				if(table[nr][nc]!=0 && !visited[nr][nc]) {
 					visited[nr][nc] = true;
-					load += dir; 
+					load[cnt++] = dir; 
 					q.add(new Dot(nr,nc));
 				}
 			}
@@ -107,6 +113,7 @@ public class september_week3 {
 		}
 		return table;
 	}
+	
 	private static int [][] spin(int [][] table) { // table 회전
 		int [][] ctable = new int [N][N];
 		
@@ -118,7 +125,8 @@ public class september_week3 {
 		return ctable;
 	}
 	private static void last(int rr, int cc, int [][] game_board) { // 순서도 만들기
-		String load = "";
+		int cnt = 0;
+		int [] load = new int[5];
 		Queue<Dot> q = new LinkedList<>();
 		visited[rr][cc] = true;
 		q.add(new Dot(rr,cc));
@@ -133,19 +141,34 @@ public class september_week3 {
 				if(nr<0 || nc<0 || nr>=N || nc>=N) continue;
 				if(game_board[nr][nc]==0 && !visited[nr][nc]) {
 					visited[nr][nc] = true;
-					load += dir; 
+					load[cnt++] = dir; 
 					q.add(new Dot(nr,nc));
 				}
 			}
 		}
 		
 		for(int i=2; i<=number; i++) {
-				if(list[i].contains(load)&& !check[i]) {
+			for(int j=0; j<list1[i].size(); j++) {
+				if(Arrays.equals(load, list1[i].get(j))&& !check[i]) {
 					check[i] = true;
-					result += load.length()+1;
+					if(cnt==5) {
+						System.out.println(i);
+						for(int x:list1[i].get(j)) System.out.print(x+" ");
+						System.out.println();
+						for(int x:load) System.out.print(x+" ");
+						System.out.println();
+					}
+					result += cnt+1;
 					return;
+				}
 			}
 		}
+	}
+    private static boolean checking(int num, int [] arr) {
+		for(int i=0; i<list1[num].size(); i++) {
+			if(Arrays.equals(arr, list1[num].get(i))) return true;
+		}
+		return false;
 	}
 }
 
@@ -153,7 +176,5 @@ public class september_week3 {
  * 1. game_board bfs 순서도 만들기
  * 2. table 회전하면서 4개의 순서도 만들기
  * 3. 두개 비교하며 가장 큰 것 선택
- * 
- * 
- * 
+ *  
  * */
