@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-
+// 5일 걸림
 public class september_week3 {
 	static int N,number,result;
 	static boolean [][] visited;
