@@ -1,3 +1,4 @@
+package weekly;
 import java.util.*;
 import java.io.*;
 
