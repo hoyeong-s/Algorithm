@@ -68,9 +68,9 @@ public class 다단계_칫솔_판매 {
         
         find();
         
-        for(int i=0; i<seller.length; i++) {
+        for(int i=0; i<seller.length; i++)
         	pq.add(new Pare(seller[i],amount[i]));
-        }
+        
         
         while(!pq.isEmpty()) {
         	Pare p = pq.poll();
