@@ -1,8 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-import com.sun.xml.internal.bind.v2.model.util.ArrayInfoUtil;
-
 public class 로또의_최고_순위와_최저_순위 {
 
 	public static void main(String[] args) {
