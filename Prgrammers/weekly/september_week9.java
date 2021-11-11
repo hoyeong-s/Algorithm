@@ -5,9 +5,7 @@ import java.util.*;
 public class september_week9 {
 	static int [] p;
 	public static void main(String[] args) {
-		int n = 6;
-		int [][] wires = {{1,4},{6,3},{2,5},{5,1},{5,3}};
-		System.out.println(solution(n,wires));
+
 	}
 	private static int solution(int n, int[][] wires) {
         p = new int [n+1];
