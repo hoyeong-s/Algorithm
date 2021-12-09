@@ -9,7 +9,7 @@ public class 순위검색 {
 
 	}
 	public static int[] solution(String[] info, String[] query) {
-        int[] answer = { };
+        int[] answer = {  };
         return answer;
     }
 }
