@@ -48,7 +48,7 @@ public class 순위검색 {
 		return sb.toString();
 	}
 	
-	private static void find(String query) {
+	private static void find (String query) {
 		StringTokenizer st = new StringTokenizer(query);
 		
 		while(st.hasMoreElements()) {
