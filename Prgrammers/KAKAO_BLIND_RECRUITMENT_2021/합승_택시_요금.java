@@ -11,7 +11,7 @@ public class 합승_택시_요금 {
 		solution(6,4,5,6,fares);
 	}
 	public static int solution(int n, int s, int a, int b, int[][] fares) {
-        int answer = 0;
+        
         int INF = 987654321;
         
         dis = new int [n+1][n+1];
