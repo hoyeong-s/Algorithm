@@ -61,8 +61,9 @@ public class 광고_삽입 {
 		
 		int end = hh*3600 + mm*60 + ss;
 		
-		for(int i = start; i<=end; i++)
+		for(int i = start; i<=end; i++) {
 			arr[i]++;
+		}
 		
 	}
 }
