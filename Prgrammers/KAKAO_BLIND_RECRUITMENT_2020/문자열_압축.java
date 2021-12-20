@@ -16,7 +16,6 @@ public class 문자열_압축 {
         for(int i=1; i<=s.length()/2+1; i++) {
         	answer = Math.min(find(s,i),answer);
         }
-        
         return answer;
     }
 	private static int find(String s, int num) {
