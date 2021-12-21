@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="Saessack"/>
 	<classpathentry kind="src" path="Prgrammers"/>
 	<classpathentry kind="src" path="SamsungSW"/>
+	<classpathentry kind="src" path="Softeer"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
