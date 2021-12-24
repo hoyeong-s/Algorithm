@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class 자물쇠와_열쇠 {
 	static HashMap<String, Boolean> map = new HashMap<>(); 
-	static int count=0;
 	
 	public static void main(String[] args) {
 		int [][] key = {{0, 0, 0}, {1, 0, 0}, {0, 1, 1}};	
@@ -20,7 +19,6 @@ public class 자물쇠와_열쇠 {
         		if(lock[i][j]==0) {
         			String str = Integer.toString(i) + Integer.toString(j);
         			map.put(str, true);
-        			count++;
         		}
         	}
         }
@@ -31,6 +29,11 @@ public class 자물쇠와_열쇠 {
         for(int i=0; i<4; i++) {
         	for(int j=0; j<len; j++) {
         		ckey = down(key,j);
+            	if(comp(ckey,lock)) return true;
+            	for(int l=1; l<len; l++) if(comp(left(ckey,l),lock)) return true;
+            	for(int r=1; r<len; r++) if(comp(right(ckey,r),lock)) return true;
+            	
+            	ckey = up(key,j);
             	if(comp(ckey,lock)) return true;
             	for(int l=1; l<len; l++) if(comp(left(ckey,l),lock)) return true;
             	for(int r=1; r<len; r++) if(comp(right(ckey,r),lock)) return true;
@@ -98,6 +101,17 @@ public class 자물쇠와_열쇠 {
 		for(int i=0; i<key.length-num; i++) {
 			for(int j=0; j<key[i].length; j++) {
 				ckey[i+num][j] = key[i][j];
+			}
+		}
+		return ckey;
+	}
+	
+	private static int [][] up(int [][] key, int num) {
+		int [][] ckey = new int [key.length][key.length];
+		
+		for(int i=num; i<key.length; i++) {
+			for(int j=0; j<key[i].length; j++) {
+				ckey[i-num][j] = key[i][j];
 			}
 		}
 		return ckey;
