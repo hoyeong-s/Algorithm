@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class 자물쇠와_열쇠 {
 	static HashMap<String, Boolean> map = new HashMap<>(); 
+	static int count=0;
 	
 	public static void main(String[] args) {
 		int [][] key = {{0, 0, 0}, {1, 0, 0}, {0, 1, 1}};	
@@ -19,6 +20,7 @@ public class 자물쇠와_열쇠 {
         		if(lock[i][j]==0) {
         			String str = Integer.toString(i) + Integer.toString(j);
         			map.put(str, true);
+        			count++;
         		}
         	}
         }
@@ -38,24 +40,21 @@ public class 자물쇠와_열쇠 {
         return false;
     }
 	private static boolean comp(int [][] key, int [][] lock) {
-		int cnt = 0;
-		
-		for(int x=0; x<=lock.length - key.length; x++) {
-			outloop:for(int y=0; y<=lock.length - key.length; y++) {
-				cnt = 0;
+		for(int i=0; i<=lock.length-key.length; i++) {
+			outloop:for(int j=0; j<=lock.length-key.length; j++) {
+				int cnt=0;
 				
-				for(int i=0; i<key.length; i++) {
-					for(int j=0; j<key[i].length; j++) {
-						if(key[i][j]==1) {
-							if(lock[x+i][y+j]==1) continue outloop; // 돌기끼리 만나는 경우
-		        			String str = Integer.toString(x+i) + Integer.toString(y+j);
-							if(map.containsKey(str)) cnt++;
-						}
+				for(int x=0; x<key.length; x++) {
+					for(int y=0; y<key.length; y++) {
+						if(lock[i+x][j+y]==1 && key[x][y]==1) continue outloop; // 둘다 돌기일 때
+						if(lock[i+x][j+y]==0 && key[x][y]==1) cnt++;
 					}
 				}
-				if(cnt == map.size()) return true;
+				if(map.size()==cnt) return true;
 			}
 		}
+		
+		
 		return false;
 	}
 	
