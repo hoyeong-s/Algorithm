@@ -40,8 +40,8 @@ public class 거리두기_확인 {
 						if(nr<0 || nc<0 || nr>=5 || nc>=5) continue;
 						if(map[nr][nc]=='P') {
 							if(dir<2) return 0; // 바로 옆에 사람 있는 경우
-							if(dir<4 && (map[nr][j]=='O' || map[i][nc]=='0')) return 0;
-							if(map[nr][nc]=='P' && map[(nr+i)/2][(nc+j)/2]=='O')	return 0;						
+							if(dir<4 && (map[nr][j]=='O' || map[i][nc]=='0')) return 0; // 그림 3번 경우
+							if(map[nr][nc]=='P' && map[(nr+i)/2][(nc+j)/2]=='O') return 0; // 거리 2이나 중간에 빈 테이블의 경우						
 						}
 					}
 				}
