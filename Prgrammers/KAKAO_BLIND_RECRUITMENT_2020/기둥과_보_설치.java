@@ -43,7 +43,7 @@ public class 기둥과_보_설치 {
 	private static boolean checkg(int r, int c) {
 		if(r==0) return true;
 		if(r>0 && g[r-1][c]) return true;
-		if(c>0 && b[r][c] || b[r][c-1]) return true;
+		if(c>0 && b[r][c-1] || b[r][c]) return true;
 		return false;
 	}
 	
@@ -60,6 +60,7 @@ public class 기둥과_보_설치 {
 				if(b[i][j] && !checkb(i,j)) return false;
 			}
 		}
+		
 		return true;
 	}
 	
