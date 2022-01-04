@@ -67,7 +67,6 @@ public class 블록_이동하기 {
 				int nc2 = c2 + dc[dir];
 				if(nr1<0 || nr2<0 || nc1<0 || nc2<0 || nr1>=N || nr2>=N || nc1>=N || nc2>=N) continue;
 				
-				
 			}
 		}
 		
