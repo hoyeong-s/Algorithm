@@ -3,6 +3,7 @@ package KAKAO_BLIND_RECRUITMENT_2020;
 import java.io.*;
 import java.util.*;
 
+// 그냥 일반적인 카운팅 개념이기 때문에 intern_2020_경주로건설 과는 다르게 visited를 dp로 풀지 않고 boolean형식으로 해도됨
 public class 블록_이동하기 {
 	static class Dot{
 		int r1,c1,r2,c2,cnt,vir;
