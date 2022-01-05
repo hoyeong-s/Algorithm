@@ -16,7 +16,7 @@ public class 블록_이동하기 {
 			this.cnt = cnt;
 			this.vir = vir;
 		}
-
+		
 	}
 	final static int [] dr = {0,0,-1,1};
 	final static int [] dc = {-1,1,0,0};
@@ -29,7 +29,9 @@ public class 블록_이동하기 {
 		//solution(board1);
 		int [][] board2 = {{0, 0, 0, 0, 0, 0, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 1, 0, 0}, {1, 1, 1, 1, 1, 1, 1, 1, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 1, 1, 1, 1, 1, 0, 0}, {0, 1, 1, 1, 1, 1, 1, 1, 1}, {0, 0, 1, 1, 1, 1, 1, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 1, 1, 0}};
 		//solution(board2);
-		
+		int [][] board3 = {{0, 0, 0, 1, 1},{0, 0, 0, 1, 0},{0, 1, 0, 1, 1},{1, 1, 0, 0, 1},{0, 0, 0, 0, 0}};
+		//solution(board3);
+
 	}
 	
 	public static int solution(int[][] board) {
@@ -57,7 +59,8 @@ public class 블록_이동하기 {
 			int vir = d.vir;
 			
 			if((r1==N-1 && c1==N-1)||(r2==N-1 && c2==N-1)) { // 도착했을 때
-				
+				min = Math.min(min, cnt);
+				continue;
 			}
 			
 			for(int dir=0; dir<4; dir++) {
@@ -66,9 +69,49 @@ public class 블록_이동하기 {
 				int nr2 = r2 + dr[dir];
 				int nc2 = c2 + dc[dir];
 				if(nr1<0 || nr2<0 || nc1<0 || nc2<0 || nr1>=N || nr2>=N || nc1>=N || nc2>=N) continue;
-				
+				if(board[nr1][nc1]==1 || board[nr2][nc2]==1) continue;
+				if(visited[nr1][nc1][vir]==0 || visited[nr1][nc1][vir]>=cnt+1) {
+					visited[nr1][nc1][vir]=cnt+1;
+					q.add(new Dot(nr1,nc1,nr2,nc2,cnt+1,vir));				
+				}
+			}	
+			
+			if(vir==0) { // 가로
+				if(r1>=1 && board[r1-1][c2]!=1 && board[r1-1][c1]!=1 && (visited[r1-1][c1][1]==0 || visited[r1-1][c1][1]>=cnt+1)) { // r1기준 위로
+					visited[r1-1][c1][1]=cnt+1;
+					q.add(new Dot(r1-1,c1,r1,c1,cnt+1,1));
+				}
+				if(r1<board.length-1 && board[r1+1][c2]!=1 && board[r1+1][c1]!=1 && (visited[r1][c1][1]==0 || visited[r1][c1][1]>=cnt+1)) { // r1기준 아래로
+					visited[r1][c1][1]=cnt+1;
+					q.add(new Dot(r1,c1,r1+1,c1,cnt+1,1));				
+				}
+				if(r2>=1 && board[r2-1][c1]!=1 && board[r2-1][c2]!=1 && (visited[r2-1][c2][1]==0 || visited[r2-1][c2][1]>=cnt+1)) { // r2 기준 위로
+					visited[r2-1][c2][1]=cnt+1;
+					q.add(new Dot(r2-1,c2,r2,c2,cnt+1,1));
+				}
+				if(r2<board.length-1 && board[r2+1][c1]!=1 && board[r2+1][c2]!=1 && (visited[r2][c2][1]==0 || visited[r2][c2][1]>=cnt+1)) { // r2 기준 아래로
+					 visited[r2][c2][1]=cnt+1;
+					 q.add(new Dot(r2,c2,r2+1,c2,cnt+1,1));
+				}
+			}else { // 세로
+				if(c1>=1 && board[r2][c1-1]!=1 && board[r1][c1-1]!=1 && (visited[r1][c1-1][0]==0||visited[r1][c1-1][0]>=cnt+1)) { // c1기준 좌측
+					visited[r1][c1-1][0]=cnt+1;
+					q.add(new Dot(r1,c1-1,r1,c1,cnt+1,0));
+				}
+				if(c1<board.length-1 && board[r2][c1+1]!=1 && board[r1][c1+1]!=1 && (visited[r1][c1][0]==0 || visited[r1][c1][0]>=cnt+1)) { //c1기준 우측
+					visited[r1][c1][0]=cnt+1;
+					q.add(new Dot(r1,c1,r1,c1+1,cnt+1,0));
+				}
+				if(c2>=1 && board[r1][c2-1]!=1 && board[r2][c2-1]!=1 && (visited[r2][c2-1][0]==0 || visited[r2][c2-1][0]>=cnt+1)) { // c2기준 좌측
+					visited[r2][c2-1][0]=cnt+1;
+					q.add(new Dot(r2,c2-1,r2,c2,cnt+1,0));
+				}
+				if(c2<board.length-1 && board[r1][c2+1]!=1 && board[r2][c2+1]!=1 && (visited[r2][c2][0]==0 || visited[r2][c2][0]>=cnt+1)) {
+					visited[r2][c2][0] = cnt+1;
+					q.add(new Dot(r2,c2,r2,c2+1,cnt+1,0));
+				}
 			}
 		}
-		
 		}
+	
 	}
