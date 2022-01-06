@@ -50,13 +50,6 @@ public class 플레이페어_암호
                 cnt++;
             }
         }
-        
-        // for(int i=0; i<5; i++){
-        //     for(int j=0; j<5; j++){
-        //         System.out.print(map[i][j]+" ");
-        //     }
-        //     System.out.println();
-        // }
         return map;
     }
 
@@ -91,8 +84,6 @@ public class 플레이페어_암호
             }
             arr[cnt++] = sb.toString();
         }
-        for(int i=0; i<arr.length; i++)
-            System.out.print(arr[i]+" ");
 
         return arr;
     }
