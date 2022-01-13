@@ -4,49 +4,44 @@ import java.util.*;
 import java.io.*;
 
 public class back_6444 {
-	static int N;
-    static int [] n;
-	static PriorityQueue<String> pq = new PriorityQueue<>(Collections.reverseOrder());
+	static int N, cnt;
+    static int [][] b;
+    static Stack<Integer> stack = new Stack<>();
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		int [] numbers = {6,10,2};
-		solution(numbers);
+		int [][] board = {{0,0,0,0,0},{0,0,1,0,3},{0,2,5,0,1},{4,2,4,4,2},{3,5,1,3,1}};
+		int [] moves = {1,5,3,5,1,2,1,4};
+		solution(board,moves);
 	}
-	public static String solution(int[] numbers) {
-        String answer = "";
-        StringBuilder sb = new StringBuilder();
-        n = numbers;
+	public static int solution(int[][] board, int[] moves) {
+        int answer = 0;
         
-        do{
-            sb = new StringBuilder();
-            for(int i=0; i<n.length; i++) sb.append(n[i]);
-            pq.add(sb.toString());
-        }while(np());
+        N = board.length;
+        b = board;
         
-        while(!pq.isEmpty()){
-            System.out.println(pq.poll());
+        for(int i=0; i<moves.length; i++){
+            int col = moves[i]-1;
+            int num = find(col);
+            if(num!=-1) {
+                remove(board[num][col]);
+                board[num][col] = 0;
+            }
         }
-        return answer;
-    }
-    private static boolean np(){
-        int i = n.length-1;
-        while(i>0 && n[i-1]>=n[i]) --i;
-        if(i==0) return false;
         
-        int j = n.length-1;
-        while(n[i-1]>=n[j]) --j;
-        
-        swap(i-1,j);
-        
-        int k = n.length-1;
-        while(i<k){
-            swap(i++,k--);
-        }
-        return true;
+        return cnt;
     }
     
-    private static void swap(int i, int j){
-        int cur = n[i];
-        n[i] = n[j];
-        n[j] = cur;
+    private static int find(int col){
+        for(int i=0; i<N; i++){
+            if(b[i][col]!=0) return i;
+        }
+        return -1;
+    }
+    
+    private static void remove(int num){
+        if(!stack.isEmpty() && stack.peek()==num){
+            stack.pop();
+            cnt+=2;
+        }
+        else stack.push(num);
     }
 }
