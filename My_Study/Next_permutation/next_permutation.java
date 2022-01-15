@@ -21,7 +21,6 @@ public class next_permutation {
 		do {
 			System.out.println(Arrays.toString(arr));
 		}while(np());
-		
 	}
 	private static boolean np() {
 		int i = N-1;
