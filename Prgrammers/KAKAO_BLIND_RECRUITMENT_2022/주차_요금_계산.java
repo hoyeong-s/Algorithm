@@ -2,7 +2,7 @@ package KAKAO_BLIND_RECRUITMENT_2022;
 
 import java.util.*;
 
-class Solution {
+public class 주차_요금_계산 {
     static HashSet<Integer> set = new HashSet<>();
     static HashMap<Integer, Integer> map = new HashMap<>(); 
     static int [] save = new int [10000];
