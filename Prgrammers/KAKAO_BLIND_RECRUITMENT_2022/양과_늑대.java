@@ -19,7 +19,6 @@ class Solution {
             int f = edges[i][0];
             int t = edges[i][1];
             list[f].add(t);
-            //list[t].add(f);
         }
         dfs(0,0,0,new ArrayList<Integer>() );
         return max;
