@@ -20,7 +20,9 @@ class Solution {
             int t = edges[i][1];
             list[f].add(t);
         }
-        dfs(0,0,0,new ArrayList<Integer>() );
+        
+        dfs(0,0,0,new ArrayList<Integer>());
+        
         return max;
     }
     private static void dfs(int idx, int sheep, int wolf, ArrayList<Integer> nodes){
