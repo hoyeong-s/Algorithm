@@ -1,55 +1,29 @@
 import java.util.*;
 
 public class 가장_큰_수 {
-	static int N;
-    static int [] num;
-    static String max = "";
 	public static void main(String[] args) {
 		int [] numbers = {3, 30, 34, 5, 9};
 		solution(numbers);
 	}
 	public static String solution(int[] numbers) {
-        N = numbers.length;
-        num = numbers;
+        String answer = "";
+        String [] arr = new String[numbers.length];
         
-        Arrays.sort(num);
-        do{
-            make();
-        }while(np());
+        for(int i=0; i<numbers.length; i++)
+        	arr[i] = Integer.toString(numbers[i]);
+        	
         
-        return max;
-    }
-    private static void make(){
+        Arrays.sort(arr, new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return (o2+o1).compareTo(o1+o2) ;
+			}
+        });
+        
         StringBuilder sb = new StringBuilder();
-        
-        for(int i=0; i<N; i++)
-            sb.append(num[i]);
-        
-        if(max.compareTo(sb.toString())<0) max = sb.toString();
-        
-    }
-    
-    private static boolean np(){
-        int i = N-1;
-        while(i>0 && num[i-1] >= num[i]) --i;
-        if(i==0) return false;
-        
-        int j = N-1;
-        while(num[i-1] >= num[j]) --j;
-        
-        swap(i-1,j);
-        
-        int k = N-1;
-        while(i<k)
-            swap(i++,k--);
-        
-        return true;
-        
-    }
-    
-    private static void swap(int a, int b){
-        int cur = num[a];
-        num[a] = num[b];
-        num[b] = cur;
+        for(String s : arr)
+        	sb.append(s);
+
+        return sb.toString();
     }
 }

@@ -1,6 +1,6 @@
 package KAKAO_BLIND_RECRUITMENT_2022;
 
-class Solution {
+public class 파괴되지_않은_건물 {
     public int solution(int[][] board, int[][] skill) {
         int answer = 0;
         int row = board.length;

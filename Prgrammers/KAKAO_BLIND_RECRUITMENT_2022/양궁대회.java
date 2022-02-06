@@ -1,6 +1,6 @@
 package KAKAO_BLIND_RECRUITMENT_2022;
 
-class Solution {
+public class 양궁대회 {
     static int max=-1;
     static int [] peach, result;
     
