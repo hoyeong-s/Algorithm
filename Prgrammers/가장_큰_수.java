@@ -19,6 +19,7 @@ public class 가장_큰_수 {
 				return (o2+o1).compareTo(o1+o2) ;
 			}
         });
+        
         StringBuilder sb = new StringBuilder();
         for(String s : arr)
         	sb.append(s);
