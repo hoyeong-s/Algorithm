@@ -4,7 +4,7 @@ public class 양궁대회 {
     static int max=-1;
     static int [] peach, result;
     
-    public int[] solution(int n, int[] info) {
+	public int[] solution(int n, int[] info) {
         int [] fail = {-1};
         result = new int [11];
         peach = info;
