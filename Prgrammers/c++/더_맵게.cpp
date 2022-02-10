@@ -20,6 +20,7 @@ int solution(vector<int> scoville, int K) {
       pq.pop();
       pq.push(f+(s*2));
     }
+    
     if(pq.top()<K) return -1;
     else return answer;
 }
