@@ -39,7 +39,6 @@ public class 파괴되지_않은_건물 {
                 if(board[i][j]+pref[i][j]>=1) answer++;
             }
         }
-        
         return answer;
     }
 }
