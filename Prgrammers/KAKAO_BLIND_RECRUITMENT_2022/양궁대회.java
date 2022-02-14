@@ -62,4 +62,5 @@ public class 양궁대회 {
         }
         return l-p;
     }
+	
 }
