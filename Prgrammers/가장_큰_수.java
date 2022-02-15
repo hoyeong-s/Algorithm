@@ -21,6 +21,7 @@ public class 가장_큰_수 {
         });
         
         StringBuilder sb = new StringBuilder();
+		
         for(String s : arr)
         	sb.append(s);
 
