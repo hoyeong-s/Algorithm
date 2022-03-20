@@ -25,6 +25,8 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
         cnt++;
       }
     }
+    
     answer.push_back(cnt);
+    
     return answer;
 }

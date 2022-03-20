@@ -11,8 +11,7 @@ public class 가장_큰_수 {
         
         for(int i=0; i<numbers.length; i++)
         	arr[i] = Integer.toString(numbers[i]);
-        	
-        
+        	        
         Arrays.sort(arr, new Comparator<String>() {
 			@Override
 			public int compare(String o1, String o2) {
@@ -21,6 +20,7 @@ public class 가장_큰_수 {
         });
         
         StringBuilder sb = new StringBuilder();
+		
         for(String s : arr)
         	sb.append(s);
 
